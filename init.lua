@@ -1,4 +1,5 @@
 
+
 local supermash = {"cmd", "alt", "ctrl"}
 local minimash = {"ctrl", "alt"}
 local shiftmash = {"ctrl", "alt", "shift"}
