@@ -75,9 +75,6 @@ hs.hotkey.bind(minimash, "V", function() hs.eventtap.keyStrokes(hs.pasteboard.ge
 -- known issue: moving window to new monitor does not adjust menu bar. Active menu bar for that window
 -- is still the menu bar from the previous monitor, until the window is interacted with ie made fullscreen
 
--- Future improvements: better handling of fullscreen and not. 
--- ie if app is already fullscreen, move to fullscreen on next monitor and keep in fullscreen.
-
 local sizeup = { }
 --------------
 -- Bindings --
@@ -136,8 +133,3 @@ end
 
 
 -------------------------------------------------------------------------------------------
-
--- Future ideas for Hammerspoon
-
--- "shrug screenshot" tool - activate Kirby srhug and immediately take a screenshot of what's behind it.
--- sizeup enhancements, as previously listed; for better multi-monitor window management.
