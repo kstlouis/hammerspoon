@@ -121,8 +121,6 @@ function sizeup.send_window_next_monitor()
   win:moveToScreen(nextScreen)
 end
 
---- hs.window:moveToScreen(screen)
---- Method
 --- move window to the the given screen, keeping the relative proportion and position window to the original screen.
 function hs.window:moveToScreen(nextScreen)
   local currentFrame = self:frame()
@@ -142,4 +140,4 @@ end
 -- Future ideas for Hammerspoon
 
 -- "shrug screenshot" tool - activate Kirby srhug and immediately take a screenshot of what's behind it.
--- sizeup enhanvements, as previously listed; for better multi-monitor window management.
+-- sizeup enhancements, as previously listed; for better multi-monitor window management.
