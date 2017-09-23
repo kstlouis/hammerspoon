@@ -75,10 +75,11 @@ hs.hotkey.bind(minimash, "V", function() hs.eventtap.keyStrokes(hs.pasteboard.ge
 -- known issue: moving window to new monitor does not adjust menu bar. Active menu bar for that window
 -- is still the menu bar from the previous monitor, until the window is interacted with ie made fullscreen
 
+--imrovement: maintain current fullscreen state when moving window that is already fullscreen
+-- way to do this: maybe "if fullscreen, then set fullscreen to false, then move"
+-- maybe too janky and long. remove animations or speed up somehow? 
+
 local sizeup = { }
---------------
--- Bindings --
---------------
 
 --- Multiple Monitor Actions ---
 -- Send Window Prev Monitor
