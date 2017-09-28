@@ -33,3 +33,4 @@ I prefer using this to vanilla hs.grid.pushWindowNextScreen as this will also pr
 - After launching browser, key command to: close current window > open private-browsing window > make window fullscreen.
 - alternate Kirby Shrug that also takes screenshot of whatever is behind it in the active window
 - Moving fullscreen app to next/previous monitor currently requires pressing key binding twice (once to take out of fullscreen, another to perform move). Would like to explore possibility of moving to new monitor while preserving fullscreen state.
+- explore way to change Safari's scroll behavior when pressing spacebar. Would prefer 1/2-page scroll instead of a full page (hammerspoon maybe not needed, maybe just terminal)
