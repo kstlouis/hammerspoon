@@ -1,10 +1,10 @@
 # Hammerspoon
 
-There will come a day when my init file doesn't hold everything, and the functions are organized a little bit better.
 
-Today is not that day.
+Very much a work in progress. 
+Main work right now is moving all functions into individual spoon modules, so the main init is a lot cleaner. 
 
-
+There will come a day when my init file doesn't hold (almost) everything, and the functions are organized a little bit better. Today is not that day.
 
 # Functions:
 
@@ -15,12 +15,13 @@ Takes the shrug and puts it in your clipboard for easy pasting into your fantast
 Checks your current wifi's SSID and changes volume settings accordingly. Mutes the system volume if away from home SSID, and unmutes when you return.
 
 No more pesky alerts when you first open your laptop in class or in a meeting!
+_Note: works 99% of the time. Not 100%. Every so often, volume won't actually be muted. Need to look into that._
 
 ### Hammerspoon Config Watcher
-Looks for a change in init.lua file, and reloads the config in Hammerspoon. No more reloading manually.
+Looks for a change in init.lua file, and reloads the config in Hammerspoon. No manual reloading.
 
 ### Keystroke Simulator
-Some website are really dumb and don't allow pasting into input fields, really tough if you use a password manager. This will simulate keyboard type events and allow you to paste whatever is in your clipboard as normal
+Some website are really dumb and don't allow pasting into input fields, really tough if you use a password manager. This will simulate keyboard type events and allow you to paste whatever is in your clipboard as normal.
 
 ### Window management tools
 This section (mostly) comes from a bunch of [SizeUp](http://www.irradiatedsoftware.com/sizeup/) emulation code that I found [here](https://gist.github.com/josephholsten/1e17c7418d9d8ec0e783). Only kept the actions to move the active window from one monitor to the next. Also modified them to optionally make the active window fullscreen after moving the new monitor with an alternate key binding.

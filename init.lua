@@ -10,10 +10,13 @@ local supermash = {"cmd", "alt", "ctrl"}
 local minimash = {"ctrl", "alt"}
 local shiftmash = {"ctrl", "alt", "shift"}
 
-egpu = require("egpu")
 
--- this isn't working, keeps ejecting my egpu and drives when it's not supposed to. 
--- think it's an issue with the hotkey combination. 
+
+--egpu = require("egpu")
+
+-- v this isn't working, keeps ejecting my egpu and drives when it's not supposed to. 
+-- v think it's an issue with the hotkey combination. 
+
 --quickEject = require("egpuEject")
 
 
@@ -21,9 +24,10 @@ egpu = require("egpu")
 hs.window.animationDuration = 0
 
 -- iTunes controls; change songs easily even when running in background
--- handy for touchbar; might not have iTunes controls always available
-hs.hotkey.bind(supermash, 'right', hs.itunes.next)
-hs.hotkey.bind(supermash, 'left', hs.itunes.previous)
+hs.loadSpoon("iTunesControl")
+hs.hotkey.bind(supermash, 'right', spoon.iTunesControl:nextTrack())
+hs.hotkey.bind(supermash, 'left', spoon.iTunesControl:prevTrack())
+hs.hotkey.bind(supermash, 'space', spoon.iTunesControl:playPause())
 
 
 -- "Shrug"
