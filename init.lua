@@ -1,14 +1,27 @@
+-- main init.lua
+
+-- By: Kellan St.Louis
+-- Contact: kstlouis@me.com
 
 
+
+-- hotky mash command for various things
 local supermash = {"cmd", "alt", "ctrl"}
 local minimash = {"ctrl", "alt"}
 local shiftmash = {"ctrl", "alt", "shift"}
+
+egpu = require("egpu")
+
+-- this isn't working, keeps ejecting my egpu and drives when it's not supposed to. 
+-- think it's an issue with the hotkey combination. 
+--quickEject = require("egpuEject")
 
 
 -- removes animations, makes window movements happen supa fast
 hs.window.animationDuration = 0
 
 -- iTunes controls; change songs easily even when running in background
+-- handy for touchbar; might not have iTunes controls always available
 hs.hotkey.bind(supermash, 'right', hs.itunes.next)
 hs.hotkey.bind(supermash, 'left', hs.itunes.previous)
 
@@ -33,10 +46,12 @@ function ssidChangedCallback()
     if newSSID == homeSSID and lastSSID ~= homeSSID then
         -- We just joined our home WiFi network
         hs.audiodevice.defaultOutputDevice():setMuted(false)
+        os.execute("sudo pmset -a displaysleep 20 sleep 30")
         hs.notify.new({title="Hammerspoon", informativeText="Mute Disabled"}):send()
     elseif newSSID ~= homeSSID and lastSSID == homeSSID then
         -- We just departed our home WiFi network
         hs.audiodevice.defaultOutputDevice():setMuted(true)
+        os.execute("sudo pmset -a displaysleep 5 sleep 10")
         hs.notify.new({title="Hammerspoon", informativeText="Volume Mute Enabled"}):send()
     end
 
@@ -132,5 +147,33 @@ function hs.window:moveToScreen(nextScreen)
   })
 end
 
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-- TESTING SOME STUFF 
+
+-- how do spoons work?
+
+
+--[[
+function sleepWatch(eventType)
+	if (eventType == hs.caffeinate.watcher.screensDidSleep) then
+		hs.alert.show("Going to sleep!")
+		hs.osascript.applescript(ejectScript)
+		hs.osascript._osascript('do shell script "echo pwd | sudo kextunload /System/Library/Extensions/AppleThunderboltPCIAdapters.kext/Contents/PlugIns/AppleThunderboltPCIUpAdapter.kext/"', 'AppleScript')
+	elseif (eventType == hs.caffeinate.watcher.screensDidWake) then
+		hs.osascript._osascript('do shell script "echo pwd | sudo kextload /System/Library/Extensions/AppleThunderboltPCIAdapters.kext/Contents/PlugIns/AppleThunderboltPCIUpAdapter.kext/"', 'AppleScript')
+		hs.alert.show("Display waking up!")
+
+	end
+end
+
+local sleepWatcher = hs.caffeinate.watcher.new(sleepWatch)
+sleepWatcher:start()
+
+
+
+
+--]]
 
 -------------------------------------------------------------------------------------------
