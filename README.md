@@ -33,6 +33,9 @@ This does a few things automatically in sequence:
 - when waking unit from sleep, re-enables the TB kext so that the eGPU and all drives are automatically detected and subsequently remounted
 There are also menubar options to eject the eGPU, all drives, or both, and check to see the status of the TB kext.
 I may have made some changes, but credit for basically all of the core functionalitly here goes to [Andy Williams](https://github.com/nonissue).
+_known issue: if you manually eject+disconnect using the menu bar icon while your Mac is in clamshell mode, it doesn't actually eject the drives (or it does, but then immediately re-mounts them)._
+_known issue: if you manually eject+disconnect while NOT in clamshell mode, then use "reset TB" option in menu bar, egpu will reconnect but drives will not auto re-mount_
+_future improvement: using the "reset TB" menu bar option while the egpu is connected and active will actually reset it (meaning disable and re-enable), instead of just checking it's status. Should also include ability to check for volumes that are not mounted and automatically mount them, even if egpu is already active. 
 
 
 #### Future plans / improvements
