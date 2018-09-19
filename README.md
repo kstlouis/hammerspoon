@@ -35,10 +35,12 @@ There are also menubar options to eject the eGPU, all drives, or both, and check
 I may have made some changes, but credit for basically all of the core functionalitly here goes to [Andy Williams](https://github.com/nonissue).
 
 
-
 #### Future plans / improvements
-- function to re-display "now playing" notification from iTunes (the one that you see when a new song starts playing), to easily see what song you're currently listenining to without serious interruption to workflow
+
+##### iTunes Controller
+- hotkey to re-display "now playing" notification from iTunes to easily see what song you're currently listenining to without serious interruption to workflow
+- hotkey to bring up list of favorite itunes playlists and immediately start one (on shuffle, obv)
+
+##### Misc
 - After launching browser, key command to: close current window > open private-browsing window > make window fullscreen.
-- alternate Kirby Shrug that also takes screenshot of whatever is behind it in the active window
-- Moving fullscreen app to next/previous monitor currently requires pressing key binding twice (once to take out of fullscreen, another to perform move). Would like to explore possibility of moving to new monitor while preserving fullscreen state.
-- explore way to change Safari's scroll behavior when pressing spacebar. Would prefer 1/2-page scroll instead of a full page (hammerspoon maybe not needed, maybe just terminal)
+- change Safari's scroll behavior when pressing spacebar. Would prefer 1/2-page scroll instead of a full page
