@@ -1,6 +1,5 @@
 # Hammerspoon
 
-
 Very much a work in progress. 
 Main work right now is moving all functions into individual spoon modules, so the main init is a lot cleaner. 
 
@@ -27,6 +26,13 @@ Some website are really dumb and don't allow pasting into input fields, really t
 This section (mostly) comes from a bunch of [SizeUp](http://www.irradiatedsoftware.com/sizeup/) emulation code that I found [here](https://gist.github.com/josephholsten/1e17c7418d9d8ec0e783). Only kept the actions to move the active window from one monitor to the next. Also modified them to optionally make the active window fullscreen after moving the new monitor with an alternate key binding.
 
 I prefer using this to vanilla hs.grid.pushWindowNextScreen as this will also preserve the window's dimensions relative to the display.
+
+### eGPU Ejecter
+This does a few things automatically in sequence:
+- ejects all mounted volumes and disconnects the eGPU when laptop is going to sleep, then disables the Thunderbolt kext
+- when waking unit from sleep, re-enables the TB kext so that the eGPU and all drives are automatically detected and subsequently remounted
+There are also menubar options to eject the eGPU, all drives, or both, and check to see the status of the TB kext.
+I may have made some changes, but credit for basically all of the core functionalitly here goes to [Andy Williams](https://github.com/nonissue).
 
 
 

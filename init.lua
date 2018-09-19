@@ -11,14 +11,8 @@ local minimash = {"ctrl", "alt"}
 local shiftmash = {"ctrl", "alt", "shift"}
 
 
-
---egpu = require("egpu")
-
--- v this isn't working, keeps ejecting my egpu and drives when it's not supposed to. 
--- v think it's an issue with the hotkey combination. 
-
---quickEject = require("egpuEject")
-
+hs.loadSpoon("eGPU")
+spoon.eGPU:start()
 
 -- removes animations, makes window movements happen supa fast
 hs.window.animationDuration = 0
@@ -158,24 +152,9 @@ end
 
 -- how do spoons work?
 
-
---[[
-function sleepWatch(eventType)
-	if (eventType == hs.caffeinate.watcher.screensDidSleep) then
-		hs.alert.show("Going to sleep!")
-		hs.osascript.applescript(ejectScript)
-		hs.osascript._osascript('do shell script "echo pwd | sudo kextunload /System/Library/Extensions/AppleThunderboltPCIAdapters.kext/Contents/PlugIns/AppleThunderboltPCIUpAdapter.kext/"', 'AppleScript')
-	elseif (eventType == hs.caffeinate.watcher.screensDidWake) then
-		hs.osascript._osascript('do shell script "echo pwd | sudo kextload /System/Library/Extensions/AppleThunderboltPCIAdapters.kext/Contents/PlugIns/AppleThunderboltPCIUpAdapter.kext/"', 'AppleScript')
-		hs.alert.show("Display waking up!")
-
-	end
-end
-
-local sleepWatcher = hs.caffeinate.watcher.new(sleepWatch)
-sleepWatcher:start()
-
-
+-- v this isn't working, keeps ejecting my egpu and drives when it's not supposed to. 
+-- v think it's an issue with the hotkey combination. 
+--quickEject = require("egpuEject")
 
 
 --]]
