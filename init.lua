@@ -11,6 +11,11 @@ local minimash = {"ctrl", "alt"}
 local shiftmash = {"ctrl", "alt", "shift"}
 
 
+-- Quick and dirty command to toggle the Console window for Hammerspoon
+hs.hotkey.bindSpec({supermash, "h" }, hs.toggleConsole)
+
+
+-- loads the eGPU ejector spoon, which is STILL VERY MUCH NOT DONE
 hs.loadSpoon("eGPU")
 spoon.eGPU:start()
 
