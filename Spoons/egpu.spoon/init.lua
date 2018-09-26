@@ -168,8 +168,19 @@ end
 --     obj.sleepWatcher = hs.caffeinate.watcher.new(sleepWatch)
 -- end
 
+
+--------------------------------------------------------------------------------
+-- function activeGPUTable()
+--     gputable = hs.host.gpuVRAM()
+--     print(gputable)
+-- end
+
+--------------------------------------------------------------------------------
+
 function obj:start()
     --obj.sleepWatcher:start()
+    -- neet to write function to detect if eGPU is even present
+    -- and only start enableMenu if it is
     obj:enableMenu()
     return obj
 end

@@ -121,8 +121,6 @@ hs.hotkey.bind(shiftmash, "Right", function()
   win:setFullScreen(not win:isFullScreen())
 end)
 
-
-
 function sizeup.send_window_prev_monitor()
   hs.alert.show("Prev Monitor")
   local win = hs.window.focusedWindow()
