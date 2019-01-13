@@ -1,11 +1,9 @@
 -- Attempt at creating a new spoon from exisiting functions
 -- to clean up my main init a bit
 
--- Do you have a touchbar? If you hate how difficult it can be to change songs if you're not in iTunes,
--- You might find this handy.
-
--- spoon to give you keyboard commands to skip forward/back in iTunes no matter where you are. 
-
+-- Do you have a touchbar?
+-- Changing songs can be tough, when iTunes isn't the current app. You might find this handy. 
+-- Gives you keyboard commands to skip forward/back in iTunes no matter where you are. 
 
 local obj = {}
 obj.__index = obj

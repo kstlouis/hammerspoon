@@ -19,6 +19,12 @@ hs.hotkey.bindSpec({supermash, "h" }, hs.toggleConsole)
 hs.loadSpoon("eGPU")
 spoon.eGPU:start()
 
+-- loads the ControlEscape spoon, which is courtesy of Jason Rudolph
+-- https://github.com/jasonrudolph/ControlEscape.spoon
+
+hs.loadSpoon("ControlEscape")
+spoon.ControlEscape:start()
+
 -- removes animations, makes window movements happen supa fast
 hs.window.animationDuration = 0
 
