@@ -10,17 +10,29 @@ local supermash = {"cmd", "alt", "ctrl"}
 local minimash = {"ctrl", "alt"}
 local shiftmash = {"ctrl", "alt", "shift"}
 
+-- -- spoon for doing a quick toggle of DarkMode
+-- -- this doesn't work, and I don't have the time to figure out why, so it's disabled for now. 
+-- -- it won't run with the key combo, but executes immediately when loaded. 
+-- hs.loadSpoon("ToggleDarkMode")
+-- hs.hotkey.bind(supermash, "L", spoon.ToggleDarkMode:switch())
+
 
 -- Quick and dirty command to toggle the Console window for Hammerspoon
 hs.hotkey.bindSpec({supermash, "h" }, hs.toggleConsole)
 
 
 -- loads the eGPU ejector spoon, which is STILL VERY MUCH NOT DONE
-hs.loadSpoon("eGPU")
-spoon.eGPU:start()
+
+-- OWC has pushed an ejector tool for its docks. this kind of makes this spoon obsolete. 
+-- keeping it in case this turns out to work more reliably than the OWC tool, but that's unlikely. 
+
+
+-- hs.loadSpoon("eGPU")
+-- spoon.eGPU:start()
 
 -- loads the ControlEscape spoon, which is courtesy of Jason Rudolph
 -- https://github.com/jasonrudolph/ControlEscape.spoon
+-- I should really consider making this work for the Function key instead of Ctrl, easier to reach with short keyboard
 
 hs.loadSpoon("ControlEscape")
 spoon.ControlEscape:start()
@@ -153,19 +165,3 @@ function hs.window:moveToScreen(nextScreen)
     w = ((currentFrame.w / screenFrame.w) * nextScreenFrame.w)
   })
 end
-
--------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------
--- TESTING SOME STUFF 
-
--- how do spoons work?
-
--- v this isn't working, keeps ejecting my egpu and drives when it's not supposed to. 
--- v think it's an issue with the hotkey combination. 
---quickEject = require("egpuEject")
-
-
---]]
-
--------------------------------------------------------------------------------------------
