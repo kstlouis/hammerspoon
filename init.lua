@@ -57,6 +57,7 @@ hs.hotkey.bind(supermash, 'K', kirby)
 
 
 -- Mutes volume when not on home WiFi network
+-- hopefully can also disable PIA vpn
 wifiWatcher = nil
 homeSSID = "weefee"
 lastSSID = hs.wifi.currentNetwork()
@@ -69,11 +70,13 @@ function ssidChangedCallback()
         hs.audiodevice.defaultOutputDevice():setMuted(false)
         os.execute("sudo pmset -a displaysleep 20 sleep 30")
         hs.notify.new({title="Hammerspoon", informativeText="Mute Disabled"}):send()
+        hs.execute("piactl disconnect", true)
     elseif newSSID ~= homeSSID and lastSSID == homeSSID then
         -- We just departed our home WiFi network
         hs.audiodevice.defaultOutputDevice():setMuted(true)
         os.execute("sudo pmset -a displaysleep 5 sleep 10")
         hs.notify.new({title="Hammerspoon", informativeText="Volume Mute Enabled"}):send()
+        hs.execute("piactl connect", true)
     end
 
     lastSSID = newSSID
