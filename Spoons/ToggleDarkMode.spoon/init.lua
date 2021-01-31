@@ -12,9 +12,7 @@ obj.onScript = [[
 
 --- DarkMode:toggle()
 function obj:switch()
-	do hs.osascript.applescript(obj.onScript)
-	end
-	return self
+	return hs.osascript.applescript(obj.onScript)
 end
 
 return obj

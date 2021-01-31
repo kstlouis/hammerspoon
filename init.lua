@@ -3,19 +3,10 @@
 -- By: Kellan St.Louis
 -- Contact: kstlouis@me.com
 
-
-
 -- hotky mash command for various things
 local supermash = {"cmd", "alt", "ctrl"}
 local minimash = {"ctrl", "alt"}
 local shiftmash = {"ctrl", "alt", "shift"}
-
--- -- spoon for doing a quick toggle of DarkMode
--- -- this doesn't work, and I don't have the time to figure out why, so it's disabled for now. 
--- -- it won't run with the key combo, but executes immediately when loaded. 
--- hs.loadSpoon("ToggleDarkMode")
--- hs.hotkey.bind(supermash, "L", spoon.ToggleDarkMode:switch())
-
 
 -- Quick and dirty command to toggle the Console window for Hammerspoon
 hs.hotkey.bindSpec({supermash, "h" }, hs.toggleConsole)
@@ -41,10 +32,15 @@ spoon.ControlEscape:start()
 hs.window.animationDuration = 0
 
 -- iTunes controls; change songs easily even when running in background
-hs.loadSpoon("iTunesControl")
-hs.hotkey.bind(supermash, 'right', spoon.iTunesControl:nextTrack())
-hs.hotkey.bind(supermash, 'left', spoon.iTunesControl:prevTrack())
-hs.hotkey.bind(supermash, 'space', spoon.iTunesControl:playPause())
+hs.hotkey.bind(supermash, 'right', hs.itunes.next)
+hs.hotkey.bind(supermash, 'left', hs.itunes.previous)
+hs.hotkey.bind(supermash, 'space', hs.itunes.playpause)
+
+-- -- spoon for doing a quick toggle of DarkMode
+-- -- this doesn't work, and I don't have the time to figure out why, so it's disabled for now. 
+-- -- it won't run with the key combo, but executes immediately when loaded. 
+-- hs.loadSpoon("ToggleDarkMode")
+-- hs.hotkey.bind(supermash, 'l', spoon.ToggleDarkMode:switch())
 
 
 -- "Shrug"
@@ -71,6 +67,7 @@ function ssidChangedCallback()
         os.execute("sudo pmset -a displaysleep 20 sleep 30")
         hs.notify.new({title="Hammerspoon", informativeText="Mute Disabled"}):send()
         hs.execute("piactl disconnect", true)
+
     elseif newSSID ~= homeSSID and lastSSID == homeSSID then
         -- We just departed our home WiFi network
         hs.audiodevice.defaultOutputDevice():setMuted(true)
